@@ -1,0 +1,11 @@
+<h2>Index des poules</h2>
+
+<% @hens.each do |hen| %>
+<div class="hen_card">
+  <img src=<%= hen.photo %> alt="Hen">
+  <h4>Découvrir <%= link_to hen.name, hen_path(hen) %></h4>
+  <p>Rendement : <%= hen.eggs_per_day %> oeufs/par jour</p>
+  <p><%= hen.price_per_day %>€</p>
+</div>
+
+<% end %>
