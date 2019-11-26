@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="hen_infos">
+    <h4> <%= @hen.name %></h4>
+    <p>Ponte journalière : <%= @hen.eggs_per_day %></p>
+    <p><%= @hen.description %></p>
+    <div class="owner">
+      <p> Propriétaire : <%= @hen.user.username %> </p>
+    </div>
+  </div>
+  <div class="hen_photo_price">
+    <img src=<%= @hen.photo %> alt="">
+    <p>Tarif journalier : <%= @hen.price_per_day %>€</p>
+  </div>
+  <div class="hen_reservation">
+    <button>Je réserve ma poule</button>
+  </div>
+
+</div>
