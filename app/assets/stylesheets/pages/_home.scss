@@ -1,1 +1,17 @@
 // Specific CSS for your home-page
+body {
+  background-color: $nude;
+  text-align: center;
+}
+
+.body h1 {
+  margin: 10px;
+}
+
+.page {
+  min-height: calc(100vh - 66px);
+}
+
+h2 {
+  margin: 20px;
+}
