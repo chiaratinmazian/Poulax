@@ -1,0 +1,16 @@
+<h2>Choisissez vos dates</h2>
+
+<!-- <label for="start">Début</label>
+<input type="date" name="trip-start" >
+
+<label for="end">Fin</label>
+<input type="date" name="trip-start" > -->
+
+<%= simple_form_for ([@hen, @reservation]) do |f| %>
+  <%= f.input :start_date, as: :date %>
+  <%= f.input :end_date, as: :date %>
+  <%= f.button :submit %>
+<% end %>
+<%= link_to 'Confirmer', hens_path %>
+
+
