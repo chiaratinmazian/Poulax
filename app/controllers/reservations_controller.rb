@@ -8,11 +8,17 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
     @reservation.hen = @hen
     @reservation.user = current_user
+    set_total_price
     if @reservation.save
-      redirect_to hen_path(@hen)
+      redirect_to dashboard_path
     else
       render :new
     end
+  end
+
+  def set_total_price
+    @days = (@reservation.end_date - @reservation.start_date).to_i
+    @reservation.total_price = @days * @reservation.hen.price_per_day
   end
 
   private

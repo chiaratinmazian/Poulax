@@ -6,7 +6,6 @@ class CreateHens < ActiveRecord::Migration[5.2]
       t.float :price_per_day
       t.integer :eggs_per_day
       t.string :city
-      t.string :photo
       t.references :user, foreign_key: true
 
       t.timestamps
