@@ -7,10 +7,11 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
     @reservation.hen = @hen
+    @reservation.user = current_user
     if @reservation.save
       redirect_to hen_path(@hen)
     else
-      render 'hens/show'
+      render :new
     end
   end
 
@@ -21,6 +22,6 @@ class ReservationsController < ApplicationController
   end
 
   def reservation_params
-    params.require(:reservations).permit(:start_date, :end_date, :user_id)
+    params.require(:reservation).permit(:start_date, :end_date, :user_id)
   end
 end
