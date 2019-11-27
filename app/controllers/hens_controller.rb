@@ -13,8 +13,9 @@ class HensController < ApplicationController
 
   def create
     @hen = Hen.new(hen_params)
+    @hen.user = current_user
     if @hen.save
-      redirect_to 'dashboard'
+      redirect_to hen_path(@hen)
     else
       render :new
     end
