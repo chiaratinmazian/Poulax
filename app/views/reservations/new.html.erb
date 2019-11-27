@@ -7,7 +7,7 @@
 <input type="date" name="trip-start" > -->
 
 <%= simple_form_for ([@hen, @reservation]) do |f| %>
-  <%= f.input :start_date, as: :date %>
+  <%= f.input :start_date, html5: true %>
   <%= f.input :end_date, as: :date %>
   <%= f.button :submit %>
 <% end %>
