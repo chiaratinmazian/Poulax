@@ -1,0 +1,10 @@
+<h2>Bienvenue sur votre dashboard</h2>
+
+<div>
+  <h3>Mon poulailler</h3>
+<% current_user.hens.each do |hen| %>
+  <%= hen.name %>
+  <%= hen.description %>
+  <%= hen.price_per_day %>
+<% end %>
+</div>
