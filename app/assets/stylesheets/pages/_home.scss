@@ -1,10 +1,26 @@
 // Specific CSS for your home-page
 body {
-  background-color: $nude;
+  background-color: #F5F5F5;
   text-align: center;
 }
 
+.banner-text {
+  flex-direction: column;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  background-color: $nude;
+  height: 100%;
+}
+
+.home-img {
+  object-fit: cover;
+  border-radius: 6px;
+  z-index: 6;
+}
+
 .body h1 {
+  justify-content: left;
   margin: 10px;
 }
 
@@ -12,6 +28,27 @@ body {
   min-height: calc(100vh - 66px);
 }
 
-h2 {
-  margin: 20px;
+h1 {
+margin-bottom: 118px;
 }
+
+h2 {
+margin-bottom: 118px;
+font-style: italic;
+}
+
+.btn-flat {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #d04925;
+  transition: background 0.3s ease;
+}
+
+.btn-flat:hover {
+  background: #f1d6ab;
+  color: white;
+}
+
+
+
