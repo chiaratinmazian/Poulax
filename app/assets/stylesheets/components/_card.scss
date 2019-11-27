@@ -1,0 +1,53 @@
+.container {
+  display: flex;
+}
+
+h2 {
+  color: #222831;
+}
+
+.card {
+  margin-bottom: 30px;
+}
+
+.card-title {
+  position: relative;
+  height: 150px;
+  background-size: cover;
+  background-position: center;
+  height: 150px;
+  border-radius: 1px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 22px;
+  color: $clear-gray;
+  font-weight: bolder;
+  text-shadow: 0 0 10px rgba(0,0,0,0.7);
+  margin:0;
+}
+
+.card-title h4 {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+.card h4 {
+  font-size: 24px;
+}
+
+.card-title a {
+  color: $clear-gray;
+}
+
+.card-description {
+  background-color: $clear-gray;
+  color: #222831;
+  font-weight: bolder;
+}
+
+p {
+  margin-top: 10px;
+}
