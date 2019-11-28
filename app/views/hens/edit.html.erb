@@ -1,0 +1,13 @@
+<h2>Modifier ma poule</h2>
+
+<%= simple_form_for(@hen) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :price_per_day %>
+  <%= f.input :eggs_per_day %>
+  <%= f.input :city %>
+  <%= f.input :description %>
+  <%= f.input :photo %>
+  <%= f.input :photo_cache, as: :hidden %>
+  <%= f.button :submit %>
+  <% end %>
+  <%= link_to 'Revenir à mon dashboard', dashboard_path %>

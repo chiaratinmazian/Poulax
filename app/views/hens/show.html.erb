@@ -1,15 +1,17 @@
 <div class="container">
-  <div class="hen_infos">
+  <div class="row row-show">
+      <div class="hen_infos">
     <h4> <%= @hen.name %></h4>
     <p>Ponte journalière : <%= @hen.eggs_per_day %></p>
     <p><%= @hen.description %></p>
     <div class="owner">
       <p> Propriétaire : <%= @hen.user.username %> </p>
+      <p>Tarif journalier : <%= @hen.price_per_day %>€</p>
     </div>
   </div>
   <div class="hen_photo_price">
     <img src=<%= @hen.photo %> alt="">
-    <p>Tarif journalier : <%= @hen.price_per_day %>€</p>
+
   </div>
   <div class="hen_reservation">
     <%= link_to 'Je réserve ma poule', new_hen_reservation_path(@hen) %>
@@ -19,5 +21,13 @@
   </div>
 </div>
 
-
-
+    <div
+  id="map"
+  style="width: 100%;
+  height: 600px;"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  >
+  </div>
+  </div>
+ </div>
