@@ -3,9 +3,9 @@ class HensController < ApplicationController
 
   def index
     if params[:query].present?
-      @hens = Hen.geocoded.where("city ILIKE ?", "%#{params[:query]}%") # ("title ILIKE ?", "%#{params[:query]}%")
+      @hens = Hen.geocoded.where("address ILIKE ?", "%#{params[:query]}%") # ("title ILIKE ?", "%#{params[:query]}%")
     else
-      @hens = Hen.geocoded
+      @hens = Hen.near(params[:query], 10)
     end
     @markers = @hens.map do |hen|
       {
@@ -52,6 +52,6 @@ class HensController < ApplicationController
   end
 
   def hen_params
-    params.require(:hen).permit(:name, :city, :description, :eggs_per_day, :price_per_day, :photo)
+    params.require(:hen).permit(:name, :address, :description, :eggs_per_day, :price_per_day, :photo)
   end
 end
