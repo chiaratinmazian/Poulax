@@ -1,4 +1,14 @@
 <h2>Réserver ma poule</h2>
+
+<%= form_tag hens_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Où picore votre poule ?"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+
 <div class="container-card">
 <div class="row row-index">
     <% @hens.each do |hen| %>

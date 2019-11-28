@@ -21,16 +21,18 @@ puts "Creating data..."
     )
   cities = ["Montauban", "Marseille", "Saint-Martin de Ré", "Dijon", "Arcachon", "Biscarrosse", "Lille", "Le Mans", "Strasbourg", "Annecy", "La Roche Sur Yon", "La Rochelle"]
   8.times do
-    url = "https://unsplash.com/photos/eKf44HSIH1E"
-    hen = Hen.create!(
+    sleep(1)
+    url = "https://images.pexels.com/photos/375510/pexels-photo-375510.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    hen = Hen.new(
       name: Faker::Name.female_first_name,
       description: Faker::Lorem.paragraph,
       city: cities.sample,
       eggs_per_day: Faker::Number.within(range:1..10),
       price_per_day: Faker::Number.within(range:5..20),
-      photo: url,
       user: user
       )
+      hen.remote_photo_url = url
+      hen.save!
     end
   resa = Reservation.create!(
     start_date: "2019-11-30",
