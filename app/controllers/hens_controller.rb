@@ -2,10 +2,12 @@ class HensController < ApplicationController
   before_action :set_hen, only: [:show, :edit, :update, :destroy]
 
   def index
-    @hens = Hen.all
-    @hens_map = Hen.geocoded
-
-    @markers = @hens_map.map do |hen|
+    if params[:query].present?
+      @hens = Hen.geocoded.where("city ILIKE ?", "%#{params[:query]}%") # ("title ILIKE ?", "%#{params[:query]}%")
+    else
+      @hens = Hen.geocoded
+    end
+    @markers = @hens.map do |hen|
       {
         lat: hen.latitude,
         lng: hen.longitude
