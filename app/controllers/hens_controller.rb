@@ -1,6 +1,14 @@
 class HensController < ApplicationController
   def index
     @hens = Hen.all
+    @hens_map = Hen.geocoded
+
+    @markers = @hens_map.map do |hen|
+      {
+        lat: hen.latitude,
+        lng: hen.longitude
+      }
+    end
   end
 
   def show
