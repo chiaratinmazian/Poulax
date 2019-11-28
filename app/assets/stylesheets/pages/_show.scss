@@ -1,0 +1,33 @@
+.hen_infos {
+  flex-grow: 1;
+  flex: 30%;
+
+  &__identity {
+    padding: 1em;
+    background-color: $nude;
+
+    & > *:last-child {
+      flex-grow: 1;
+    }
+  }
+}
+
+.hen_infos, .hen_poule {
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1em 1em 0em 1em;
+}
+
+.hen_poule {
+  flex-grow: 1;
+  flex: 30%;
+}
+
+.btn-outline-secondary {
+  display: flex;
+  flex-direction: column;
+  width: 99%;
+  margin: 20px;
+}

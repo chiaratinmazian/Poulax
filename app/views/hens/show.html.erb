@@ -1,33 +1,49 @@
-<div class="container">
-  <div class="row row-show">
-      <div class="hen_infos">
-    <h4> <%= @hen.name %></h4>
-    <p>Ponte journalière : <%= @hen.eggs_per_day %></p>
-    <p><%= @hen.description %></p>
-    <div class="owner">
-      <p> Propriétaire : <%= @hen.user.username %> </p>
-      <p>Tarif journalier : <%= @hen.price_per_day %>€</p>
+<div class="container-fluid">
+  <div class="d-flex align-items-center"> <!-- d-flex ==> display:flex -->
+    <!-- 1ER BLOC -->
+    <div class="hen_infos">
+      <div class="hen_infos__identity d-flex align-items-center">
+        <!-- ICONE -->
+        <h4> <%= @hen.name %></h4>
+      </div>
+      <div class="hen_infos__identity d-flex align-items-center">
+        <%= icon('fas', 'egg') %>
+        <p>Ponte journalière : <%= @hen.eggs_per_day %></p>
+      </div>
+      <div class="hen_infos__identity d-flex align-items-center">
+        <%= icon('fas', 'calendar-week') %>
+        <p><%= @hen.description %></p>
+      </div>
+      <div class="hen_infos__identity d-flex align-items-center">
+        <%= icon('fas', 'user-alt') %>
+        <p> Propriétaire : <%= @hen.user.username %> </p>
+      </div>
+
+
+
+
+    </div>
+    <!-- 2EME BLOC -->
+    <div class="hen_poule">
+      <%= cl_image_tag @hen.photo, alt: "C'est la poule #{@hen.name}" %>
+      <div class="hen_infos__identity d-flex align-items-center">
+        <%= icon('fas', 'dollar-sign') %>
+        <p>Tarif journalier : <%= @hen.price_per_day %>€</p>
+      </div>
+      <%= link_to 'Je réserve ma poule', new_hen_reservation_path(@hen), class: 'btn btn-dark w-100' %>
+    </div>
+    <!-- 3EME BLOC -->
+    <div
+    id="map"
+    style="width: 40%;
+    height: 500px; padding: 1em 1em 0em 1em;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
-  <div class="hen_photo_price">
-    <img src=<%= @hen.photo %> alt="">
 
-  </div>
-  <div class="hen_reservation">
-    <%= link_to 'Je réserve ma poule', new_hen_reservation_path(@hen) %>
-  </div>
   <div>
-    <%= link_to "Retourner à la liste des poules", hens_path %>
+    <%= link_to "Retourner à la liste des poules", hens_path, class: 'btn btn-outline-secondary'%>
   </div>
 </div>
 
-    <div
-  id="map"
-  style="width: 100%;
-  height: 600px;"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-  >
-  </div>
-  </div>
- </div>
