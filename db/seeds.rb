@@ -21,7 +21,7 @@ puts "Creating data..."
     )
   cities = ["Montauban", "Marseille", "Saint-Martin de Ré", "Dijon", "Arcachon", "Biscarrosse", "Lille", "Le Mans", "Strasbourg", "Annecy", "La Roche Sur Yon", "La Rochelle"]
   8.times do
-    url = "https://source.unsplash.com/collection/8666324"
+    url = "https://unsplash.com/photos/eKf44HSIH1E"
     hen = Hen.create!(
       name: Faker::Name.female_first_name,
       description: Faker::Lorem.paragraph,

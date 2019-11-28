@@ -6,6 +6,8 @@
   <%= link_to hen.name, hen_path(hen) %>
   <%= hen.description %>
   <%= hen.price_per_day %>
+  <%= link_to 'Modifier ma poule', edit_hen_path(hen) %>
+  <%= link_to 'Supprimer ma poule', hen_path(hen), method: :delete, data: { confirm: "Are you sure?" } %>
   <img src=<%= hen.photo %> alt="">
   <% end %>
 </div>

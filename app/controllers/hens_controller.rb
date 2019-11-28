@@ -29,6 +29,24 @@ class HensController < ApplicationController
     end
   end
 
+  def edit
+    @hen = Hen.find(params[:id])
+  end
+
+  def update
+    @hen = Hen.find(params[:id])
+    if @hen.update(hen_params)
+      redirect_to hen_path(@hen)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @hen = Hen.find(params[:id])
+    @hen.destroy
+  end
+
   private
 
   def hen_params
