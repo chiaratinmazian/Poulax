@@ -25,7 +25,7 @@
     </div>
     <!-- 2EME BLOC -->
     <div class="hen_poule">
-      <%= cl_image_tag @hen.photo, alt: "C'est la poule #{@hen.name}" %>
+      <%= cl_image_tag @hen.photo, alt: "C'est la poule #{@hen.name}", width: "400" %>
       <div class="hen_infos__identity d-flex align-items-center">
         <%= icon('fas', 'dollar-sign') %>
         <p>Tarif journalier : <%= @hen.price_per_day %>€</p>
