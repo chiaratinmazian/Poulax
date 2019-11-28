@@ -4,9 +4,10 @@ body {
   text-align: center;
 }
 
-.row {
-  width: 100%;
-}
+// .row {
+//   width: 100%;
+// }
+
 .banner-text {
   flex-direction: column;
   justify-content: space-evenly;
@@ -50,11 +51,9 @@ body {
   min-height: calc(100vh - 66px);
 }
 
-
-
 h2 {
-
-font-style: italic;
+  font-style: italic;
+  margin: 20px;
 }
 
 // .btn-flat {
