@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <title>Poulax</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
@@ -12,8 +13,6 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     <div class="page"><%= yield %></div>
     <div class="footer">
       <div class="footer-links">
@@ -28,8 +27,10 @@
       </div>
     </div>
 
+
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
+    <script src="https://kit.fontawesome.com/92cd8d7d66.js" crossorigin="anonymous"></script>
   </body>
 </html>
 
