@@ -1,0 +1,22 @@
+// .hens_infos {
+//   flex-grow: 1;
+//   flex: 30%;
+
+//   &__identity {
+//     padding: 1em;
+//     background-color: $nude;
+
+//     & > *:last-child {
+//       flex-grow: 1;
+//     }
+//   }
+// }
+
+.hens_infos {
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1em 1em 0em 1em;
+  border-radius: 60px;
+}

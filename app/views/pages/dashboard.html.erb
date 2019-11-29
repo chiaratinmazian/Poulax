@@ -1,29 +1,37 @@
-<h2>Bienvenue sur votre dashboard</h2>
+<div class="container">
+  <h2>Tableau de bord</h2>
+  <div class="row">
+    <div class="col-xs-12 col-md-6">
+      <div class="hens_infos">
+        <h3>Mon poulailler</h3>
+        <% current_user.hens.each do |hen| %>
+          <div class="hen_infos__identity">
+            <%= link_to hen_path(hen), style:"background-image: url( #{hen.photo} )" do %>
+              <h4><%=hen.name%></h4>
+            <% end %>
+            <%= link_to 'Modifier ma poule', edit_hen_path(hen), class: "btn btn-primary button-hen" %>
+            <%= link_to 'Supprimer ma poule', hen_path(hen), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-primary button-hen" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <div class="hens_infos">
+        <h3>Détail des réservations</h3>
+        <% current_user.reservations.each do |resa| %>
+          <div class="hen_infos__identity">
+            <!-- <p> Du<%= resa.start_date %> Au <%= resa.end_date %></p> -->
+            <%= cl_image_tag resa.hen.photo, width: 100 %>
+            <%= resa.hen.name %>
+            <!-- <p>Prix total : <%= resa.total_price %> €</p> -->
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center dashbord-buttons">
+      <%= link_to "Ajouter une Poule", new_hen_path, class: 'btn btn-outline-secondary button-1' %>
+      <%= link_to "Retourner à la liste des poules", hens_path, class: 'btn btn-outline-secondary button-2' %>
+    </div>
 
-<div>
-  <h3>Mon poulailler</h3>
-<% current_user.hens.each do |hen| %>
-  <%= link_to hen.name, hen_path(hen) %>
-  <%= hen.description %>
-  <%= hen.price_per_day %>
-  <%= link_to 'Modifier ma poule', edit_hen_path(hen) %>
-  <%= link_to 'Supprimer ma poule', hen_path(hen), method: :delete, data: { confirm: "Are you sure?" } %>
-  <img src=<%= hen.photo %> alt="">
-  <% end %>
-</div>
-<div>
-  <h3>Mes réservations</h3>
-  <% current_user.reservations.each do |resa| %>
-  <p> Du<%= resa.start_date %> Au <%= resa.end_date %></p>
-  <%= resa.hen.photo %>
-  <%= resa.hen.name %>
-  <p>Prix total : <%= resa.total_price %> €</p>
-  <% end %>
-</div>
-
-<div>
-  <%= link_to "Ajouter une Poule", new_hen_path %>
-</div>
-<div>
-  <%= link_to "Retourner à la liste des poules", hens_path %>
+  </div>
 </div>
