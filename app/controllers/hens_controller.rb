@@ -16,7 +16,9 @@ class HensController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @markers = [lat: @hen.latitude, lng: @hen.longitude]
+  end
 
   def new
     @hen = Hen.new
