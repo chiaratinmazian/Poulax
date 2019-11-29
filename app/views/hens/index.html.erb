@@ -1,37 +1,35 @@
-<h2>Réserver ma poule</h2>
-
-<%= form_tag hens_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Où picore votre poule ?"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
+<h2>Trouve ta poulette</h2>
+<%= form_tag hens_path, method: :get, class:"d-flex" do %>
+<%= text_field_tag :query,
+params[:query],
+class: "form-control-index",
+placeholder: "Où picore votre poule ?"
+%>
+<%= submit_tag "Search", class: "btn btn-primary  search-button " %>
 <% end %>
-
 <div class="container-card">
-<div class="row row-index">
+  <div class="row row-index">
     <% @hens.each do |hen| %>
     <div class="col-12 col-md-6">
-    <div class="card" >
-      <!-- <img src=<%= hen.photo %> alt="Hen"> -->
-      <div class="card-title" style="background-image: url(<%= hen.photo %>)">
-        <h4><%= link_to hen.name, hen_path(hen) %></h4>
+      <div class="card" >
+        <!-- <img src=<%= hen.photo %> alt="Hen"> -->
+        <%= link_to hen_path(hen), class:"card-title", style:"background-image: url( #{hen.photo} )" do %>
+        <h4><%=hen.name%></h4>
+        <% end %>
+        <div class="card-description">
+          <p>Ponte journalière: <%= hen.eggs_per_day %> oeufs/par jour</p>
+          <p><%= hen.price_per_day %>€</p>
+        </div>
       </div>
-      <div class="card-description">
-        <p>Ponte journalière: <%= hen.eggs_per_day %> oeufs/par jour</p>
-        <p><%= hen.price_per_day %>€</p>
-      </div>
-    </div>
     </div>
     <% end %>
   </div>
   <div
-  id="map"
-  style="width: 100%;
-  height: 600px;"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-  >
+    id="map"
+    style="width: 100%;
+    height: 600px;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+    >
   </div>
 </div>
