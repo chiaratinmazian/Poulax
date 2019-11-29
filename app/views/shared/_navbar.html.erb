@@ -18,7 +18,11 @@
         <%= link_to "Messages", "#", class: "nav-link" %>
       </li>
       <li class="nav-item dropdown">
+        <% if current_user.photo.present? %>
         <%= cl_image_tag current_user.photo, class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <% else %>
+        <%= cl_image_tag "https://res.cloudinary.com/dljfsfpna/image/upload/v1575025976/avatar_sipc49.png", class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <% end %>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %>
           <%= link_to "Another action", "#", class: "dropdown-item" %>

@@ -6,4 +6,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   mount_uploader :photo, PhotoUploader
+
+  # before_create :set_default_avatar
+
+  # def set_default_avatar
+  #   default_url = "https://topgear.com.my/sites/default/files/default_images/avatar-default.png"
+  #   if self.photo.present?
+  #     self.photo = default_url
+  #   end
+  # end
 end
