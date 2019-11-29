@@ -8,13 +8,29 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
     @reservation.hen = @hen
     @reservation.user = current_user
+    dispo = true
+    @hen.reservations.each do |resa|
+      @start = resa.start_date
+      @end = resa.end_date
+      if @reservation.start_date.between?(@start, @end) || @reservation.end_date.between?(@start, @end)
+        flash.now[:notice] = "#{@hen.name} n'est pas disponible à ces dates"
+        dispo = false
+      end
+    end
     set_total_price
-    if @reservation.save
+    if @reservation.save && dispo == true
       redirect_to dashboard_path
     else
-      render :new
+      render '../views/reservations/new'
     end
   end
+  #   set_total_price
+  #   if @reservation.save
+  #     redirect_to dashboard_path
+  #   else
+  #     render :new
+  #   end
+  # end
 
   def set_total_price
     @days = (@reservation.end_date - @reservation.start_date).to_i

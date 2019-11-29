@@ -30,7 +30,11 @@
         <%= icon('fas', 'dollar-sign') %>
         <p>Tarif journalier : <%= @hen.price_per_day %>€</p>
       </div>
-      <%= link_to 'Je réserve ma poule', new_hen_reservation_path(@hen), class: 'btn btn-dark w-100' %>
+      <% if current_user != @hen.user %>
+        <%=link_to 'Je réserve ma poule', new_hen_reservation_path(@hen), class: 'btn btn-dark w-100' %>
+      <% else %>
+        <%=link_to 'Je modifie ma poule', edit_hen_path(@hen), class: 'btn btn-dark w-100' %>
+      <% end %>
     </div>
     <!-- 3EME BLOC -->
     <div
