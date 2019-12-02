@@ -11,7 +11,8 @@ class HensController < ApplicationController
     @markers = @hens.map do |hen|
       {
         lat: hen.latitude,
-        lng: hen.longitude
+        lng: hen.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { hen: hen })
       }
     end
   end
